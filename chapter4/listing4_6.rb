@@ -5,14 +5,16 @@ VIEW_PRODUCT = 0     # action type constants
 ADD_TO_CART  = 1                                                       
 CHECKOUT     = 2                                                       
 PURCHASE     = 3                                                       
-                                                                       
-con = Mongo::Connection.new                                            
-db  = con['garden']                                                    
-db.drop_collection("user.actions")                                     
-db.create_collection("user.actions", :capped => true, :size => 16384)  
- 
-actions = db['user.actions'] # refers to the garden.user.actions collection                                      
-                                                                       
+
+DATABASE_HOST   = 'localhost'
+DATABASE_PORT   = 27017
+DATABASE_NAME   = "garden"
+
+client = Mongo::Client.new([DATABASE_HOST], :database => DATABASE_NAME)
+client[:user_actions].drop                                        
+actions = client[:user_actions, :capped => true, :size => 16384]
+actions.create
+                                                                        
 500.times do |n|             # loop 500 times, using n as the iterator                                          
   doc = {                                                              
     :username => "kbanker",                                            
@@ -20,5 +22,5 @@ actions = db['user.actions'] # refers to the garden.user.actions collection
     :time => Time.now.utc,                                             
     :n => n                                                            
   }                                                                    
-  actions.insert(doc)                                                  
+  actions.insert_one(doc)                                                  
 end                        
