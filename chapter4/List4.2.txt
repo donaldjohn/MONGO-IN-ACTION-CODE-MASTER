@@ -1,0 +1,17 @@
+{
+    _id: ObjectId("6a5b1476238d3b4dd5000048"), // Outdoors的子类别
+    slug:"gardening-tools",
+    name:"Gardening Tools",
+    description:"Gardening gadgets glore!",
+    parent_id: ObjectId("55804822812cb336b78728f9"),
+    // 冗余数据，用于快速查找
+    ancestors:[{
+        name:"Home", // 商品类别
+        _id:ObjectId("55804822812cb336b78728fa"),
+        slug:"home"
+    },{
+        name:"Outdoors", // Home的子类别
+        _id:ObjectId("55804822812cb336b78728f9"),
+        slug:"outdoors"
+    }]
+}

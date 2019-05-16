@@ -1,0 +1,25 @@
+{
+    _id:ObjectId("4c4b1476238f3b4dd5000042"),
+    username:"test",
+    email:"test@test.com",
+    first_name:"Kyle",
+    last_name:"Banker",
+    hashed_password:"bd1cfa194c3a603e7186780824b04419",
+    addresses:[{
+        name:"home",
+        street:"588 5th",
+        city:"Brooklyn",
+        state:"NY",
+        zip:11215
+    },{
+        name:"word",
+        street:"1 E. 23th",
+        city:"New York",
+        state:"NY",
+        zip:10010
+    }],
+    payment_methods:[{
+        name:"VISA",
+        payment_token:"43f6ba6b8106fc7"
+    }]
+}
