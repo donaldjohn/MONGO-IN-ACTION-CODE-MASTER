@@ -37,3 +37,8 @@
     main_cat_id:  ObjectId("6a5b1476238d3b4dd5000048"),
     tags:["tools","gardening","soil"]
 }
+
+
+db.products.createIndex({slug:1},{unique:true});
+
+

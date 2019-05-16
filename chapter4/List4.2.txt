@@ -15,3 +15,12 @@
         slug:"outdoors"
     }]
 }
+
+
+// 查询该类别的所有商品
+db.products.find({category_ids:ObjectId("6a5b1476238d3b4dd5000048")})
+
+// 查询商品的所有类别信息
+db.categories.find({_id:{$in:product['category_ids']}})
+
+db.products.findOne({'slug':'wheelbarrow-9092'})
