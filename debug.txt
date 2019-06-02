@@ -1,0 +1,11 @@
+db.products.aggregate(
+    [
+    {
+        $project:
+        {
+            category_ids:1
+        }
+        },
+        {
+            $unwind:'$category_ids'
+        }]).pretty()
